@@ -1,6 +1,7 @@
 export const menulists = [
   {
     id: 1,
+    path: "/home",
     path: "/",
     link: "Home",
   },

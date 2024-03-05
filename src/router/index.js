@@ -1,3 +1,5 @@
+export { ProductCard } from "../screen/product/ProductCard";
+
 export { Services } from "../screen/services/Services";
 
 export { About } from "../screen/about/About";
@@ -15,4 +17,3 @@ export { Layout } from "../components/common/Layout";
 export { Home } from "../screen/home/Home";
 
 export { Hero } from "../components/hero/Hero";
-
