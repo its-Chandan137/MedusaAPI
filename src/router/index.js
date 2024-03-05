@@ -1,4 +1,16 @@
-export { ProductCard } from "../screen/product/ProductCard";
+export { Footer } from "../components/common/Footer";
+
+export { InstagramPost } from "../components/hero/InstagramPost";
+
+export { Testimonials } from "../components/hero/Testimonials";
+
+export { ProductSlide } from "../components/product/ProductSlide";
+
+export { Banner } from "../components/product/Banner";
+
+export { ShippingInfo } from "../components/product/ShippingInfo";
+
+export { ProductCard } from "../components/product/ProductCard";
 
 export { Services } from "../screen/services/Services";
 

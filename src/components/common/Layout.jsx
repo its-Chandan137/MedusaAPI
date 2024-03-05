@@ -1,3 +1,4 @@
+import { Footer } from './Footer';
 import { Header } from './Header'
 import PropTypes from "prop-types";
 
@@ -6,8 +7,8 @@ import PropTypes from "prop-types";
    return (
      <div>
         <Header/>
-        <main style={{minHeight: "100vh"}}>{children}</main>
-        <h2>Footer</h2>
+        <main style={{minHeight: "80vh"}}>{children}</main>
+        <Footer/>
      </div>
    )
  }
