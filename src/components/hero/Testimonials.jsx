@@ -1,4 +1,4 @@
-import { BodyOne, Title } from "../common/CustomComponents"
+import { BodyOne, Caption, Title } from "../common/CustomComponents"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -74,13 +74,15 @@ export const Testimonials = () => {
                 <Slider {...settings}>
                     <TestimonialsCard 
                     name="Jackie Chain" 
-                    post="Some Chinies-man"
-                    cover="../images/testimonial/pic5.jpg"
+                    post="Some Chinese-man"
+                    p2="Said :  Something in chinese"
+                    cover="../images/testimonial/jackie head.jpg"
                     />
                     <TestimonialsCard 
                     name="John Cena" 
                     post="Famous Star"
-                    cover="../images/testimonial/pic6.jpg"
+                    p2="Said : U can't C Me"
+                    cover="../images/testimonial/blank image.jpg"
                     />
                 </Slider>
                 </div>
@@ -92,7 +94,7 @@ export const Testimonials = () => {
  
 
 
- export const TestimonialsCard = ({cover, name, post}) => {
+ export const TestimonialsCard = ({cover, name, post, p2}) => {
    return (
      <>
         <div className="flex items-center gap-8">
@@ -107,6 +109,7 @@ export const Testimonials = () => {
                     {name}
                 </Title>
                 <p>{post}</p>
+                <Caption>{p2}</Caption>
             </div>
         </div>
      </>

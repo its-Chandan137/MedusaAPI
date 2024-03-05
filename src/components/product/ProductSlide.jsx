@@ -14,7 +14,7 @@ export const ProductSlide = () => {
                 <Title level={4}>What is Trending Now</Title>
                 <div className="flex items-center gap-3 uppercase">
                     <BodyOne className="text-sm">
-                        DISCOVER THE MOST TRENDING PRODUCT IN <a href="/home" 
+                        DISCOVER THE MOST TRENDING PRODUCT IN <a href="/" 
                         className="text-sm text-green-600 cursor-pointer">MEDUSA</a>.
                     </BodyOne>
                 </div>
