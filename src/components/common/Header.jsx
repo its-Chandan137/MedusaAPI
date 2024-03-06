@@ -1,19 +1,17 @@
 import LogoImg from "../../assets/common/medusa.png";
 import { menulists } from "../../assets/data/data.js";
 import { Badges, CustomLink, CustomNavLink } from "./CustomComponents.jsx";
-import { IoHeart, IoSearchOutline } from "react-icons/io5";
-import { FaOpencart } from "react-icons/fa6";
+import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { useLocation } from "react-router-dom";
-
-
+import { NavLink, useLocation } from "react-router-dom";
+import { ModelCart } from "../cart/ModelCart.jsx";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef(null);
-  const location = useLocation()
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -64,7 +62,7 @@ export const Header = () => {
           <div className="flex items-center gap-14">
             <div>
               <CustomNavLink href="/">
-                <img src={LogoImg} alt="medusa" className="h-8"/>
+                <img src={LogoImg} alt="medusa" className="h-8" />
               </CustomNavLink>
             </div>
             <div className="hidden lg:flex items-center justify-between gap-8">
@@ -77,13 +75,14 @@ export const Header = () => {
           </div>
           <div className="flex items-center gap-8 icons">
             <div className="uppercase hidden lg:block text-inherit relative z-20">
-              <CustomLink
+              <NavLink
+                to="/login"
                 className={`${
                   !isHomePage || isScrolled ? "text-primary" : "text-white"
                 }`}
               >
                 Login
-              </CustomLink>
+              </NavLink>
               <span
                 className={`${
                   !isHomePage || isScrolled ? "text-primary" : "text-white"
@@ -92,57 +91,42 @@ export const Header = () => {
                 {" "}
                 /{" "}
               </span>
-              <CustomLink
+              <NavLink to="/register"
                 className={`${
                   !isHomePage || isScrolled ? "text-primary" : "text-white"
                 }`}
               >
                 Register
-              </CustomLink>
+              </NavLink>
             </div>
-            <div className="icon flex items-center justify-center gap-6">
-              <IoSearchOutline
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-                size={23}
-              />
+            <div
+              className={`icon flex items-center justify-center gap-6 
+            ${!isHomePage || isScrolled ? "text-primary" : "text-white"}`}
+            >
+              <IoSearchOutline size={23} />
+
+              <ModelCart />
+
+              <button
+                onClick={toggleMenu}
+                className="lg:hidden w-10 h-10 flex justify-center items-center bg-black text-white focus:outline-none"
+              >
+                {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu />}
+              </button>
             </div>
-            <div className="relative z-20">
-              <IoHeart
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-                size={26}
-              />
-              <div className="absolute -top-2 -right-2">
-                <Badges color="bg-primary-green">0</Badges>
-              </div>
-            </div>
-            <div className="relative z-20">
-              <CustomNavLink href="/shop">
-              <FaOpencart
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-                size={26}
-              />
-              </CustomNavLink>
-              <div className="absolute -top-2 -right-2">
-                <Badges color="bg-primary-green">0</Badges>
-              </div>
-            </div>
-            <button onClick={toggleMenu} className="lg:hidden w-10 h-10 flex justify-center items-center bg-black text-white focus:outline-none">
-                {isOpen? <AiOutlineClose size={24}/> : <AiOutlineMenu/>}
-            </button>
           </div>
 
-          <div ref={menuRef} className={`lg:flex lg:items-center lg:w-auto w-full p-5 absolute right-0 top-full menu-container ${isOpen? "open" : "closed"}`}>
+          <div
+            ref={menuRef}
+            className={`lg:flex lg:items-center lg:w-auto w-full p-5 absolute right-0 top-full menu-container ${
+              isOpen ? "open" : "closed"
+            }`}
+          >
             {menulists.map((list) => (
-                <li key={list.id} className="uppercase list-none">
-                  <CustomNavLink href={list.path}>{list.link}</CustomNavLink>
-                </li>
-              ))}
+              <li key={list.id} className="uppercase list-none">
+                <CustomNavLink href={list.path}>{list.link}</CustomNavLink>
+              </li>
+            ))}
           </div>
         </nav>
       </header>

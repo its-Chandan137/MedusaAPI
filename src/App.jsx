@@ -4,7 +4,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { About, Blog, Contact, Home, Layout, Services, Shop } from './router';
+import { About, Blog, CartPage, Contact, Home, Layout, Login, ProductDeatils, Register, Services, Shop } from './router';
 import './styles/index.css'
 
 
@@ -21,6 +21,10 @@ export const App = () => {
         <Route path="/about" element={<Layout><About/></Layout>}/>
         <Route path="/services" element={<Layout><Services/></Layout>}/>
         <Route path="/contact" element={<Layout><Contact/></Layout>}/>
+        <Route path="/cart" element={<Layout><CartPage/></Layout>}/>
+        <Route path="/login" element={<Layout><Login/></Layout>}/>
+        <Route path="/register" element={<Layout><Register/></Layout>}/>
+        <Route path="/product-details/:productId" element={<Layout><ProductDeatils/></Layout>}/>
       </Routes>
       </BrowserRouter>
     </>

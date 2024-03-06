@@ -1,3 +1,12 @@
+
+export {Register} from "../screen/register/Register";
+
+export { Login } from "../screen/login/Login";
+
+export { CartPage } from "../screen/CartPage";
+
+export { ProductDeatils } from "../screen/product/ProductDeatils";
+
 export { Footer } from "../components/common/Footer";
 
 export { InstagramPost } from "../components/hero/InstagramPost";
@@ -29,3 +38,4 @@ export { Layout } from "../components/common/Layout";
 export { Home } from "../screen/home/Home";
 
 export { Hero } from "../components/hero/Hero";
+

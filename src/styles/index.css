@@ -299,3 +299,14 @@ body {
   background-color: #0d775e;
 }
 
+.backgroundScreens{
+  background-image: 
+  linear-gradient(rgba(22, 22, 22, 0.5),
+                    rgba(22, 22, 22, 0.9)),
+                      url("./images/hero/bg1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}

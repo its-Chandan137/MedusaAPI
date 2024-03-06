@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 export const Hero = () => {
 
@@ -87,7 +88,7 @@ export const HeroItem = ({ title, description, prices, colors, image }) => {
                         <div>
                             <Caption>Prices</Caption>
                             <div className="mt-3">
-                                <Title level={5}>{selectedPrice.value.toFixed(2)}</Title>
+                                <Title level={5}>&#8377;{selectedPrice.value.toFixed(2)}</Title>
                             </div>
                         </div>
                         <div>
@@ -109,8 +110,13 @@ export const HeroItem = ({ title, description, prices, colors, image }) => {
                         </div>
                     </div>
                     <div className="flex items-center gap-8">
-                        <button className="primary-btn uppercase">view details</button>
-                        <button className="secondary-btn uppercase">view shop</button>
+                        <NavLink to="#">
+                            <button className="primary-btn uppercase">view details</button>
+                        </NavLink>
+                        
+                        <NavLink to="/shop">
+                            <button className="secondary-btn uppercase">view shop</button>
+                        </NavLink>
                     </div>
                 </div>
 

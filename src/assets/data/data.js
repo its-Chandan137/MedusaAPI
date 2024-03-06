@@ -12,8 +12,8 @@ export const menulists = [
   },
   {
     id: 3,
-    path: "/blog",
-    link: "Blog",
+    path: "/services",
+    link: "Services",
   },
   {
     id: 4,
@@ -22,13 +22,13 @@ export const menulists = [
   },
   {
     id: 5,
-    path: "/services",
-    link: "Services",
+    path: "/contact",
+    link: "Contact",
   },
   {
     id: 6,
-    path: "/contact",
-    link: "Contact",
+    path: "/cart",
+    link: "Cart",
   },
 ];
 
@@ -42,15 +42,15 @@ export const herolist = [
     price: [
       {
         color: "red",
-        value: 135.78,
+        value: 135.50,
       },
       {
         color: "yellow",
-        value: 185.27,
+        value: 185.20,
       },
       {
         color: "green",
-        value: 125.62,
+        value: 125.60,
       },
     ],
     color: [
@@ -70,15 +70,15 @@ export const herolist = [
     price: [
       {
         color: "red",
-        value: 154.23,
+        value: 154.99,
       },
       {
         color: "yellow",
-        value: 123.43,
+        value: 123.50,
       },
       {
         color: "green",
-        value: 143.34,
+        value: 143.39,
       },
     ],
     color: [
@@ -106,9 +106,9 @@ export const productlists = [
     rating: 2.5,
     featured: true,
     price: [
-      { color: "red", value: 135.78 },
-      { color: "yellow", value: 185.27 },
-      { color: "green", value: 125.62 },
+      { color: "red", value: 835.99 },
+      { color: "yellow", value: 785.50 },
+      { color: "green", value: 925.90 },
     ],
     color: [{ value: "red" }, { value: "yellow" }, { value: "green" }],
   },
@@ -126,9 +126,9 @@ export const productlists = [
     rating: 4.2,
     featured: false,
     price: [
-      { color: "blue", value: 99.99 },
-      { color: "white", value: 120.5 },
-      { color: "brown", value: 85.75 },
+      { color: "blue", value: 199.99 },
+      { color: "white", value: 120.50 },
+      { color: "brown", value: 185.70 },
     ],
     color: [{ value: "blue" }, { value: "white" }, { value: "brown" }],
   },
@@ -147,8 +147,8 @@ export const productlists = [
     featured: true,
     price: [
       { color: "clear", value: 29.99 },
-      { color: "brown", value: 35.5 },
-      { color: "green", value: 27.75 },
+      { color: "brown", value: 35.50 },
+      { color: "green", value: 39.70 },
     ],
     color: [{ value: "clear" }, { value: "brown" }, { value: "green" }],
   },
@@ -166,9 +166,9 @@ export const productlists = [
     rating: 4.8,
     featured: false,
     price: [
-      { color: "natural", value: 19.99 },
-      { color: "dark brown", value: 22.5 },
-      { color: "light brown", value: 17.75 },
+      { color: "natural", value: 89.99 },
+      { color: "dark brown", value: 72.50 },
+      { color: "light brown", value: 65.70 },
     ],
     color: [
       { value: "natural" },
@@ -190,9 +190,9 @@ export const productlists = [
     rating: 4.0,
     featured: false,
     price: [
-      { color: "dark", value: 14.99 },
-      { color: "light", value: 18.5 },
-      { color: "white", value: 12.75 },
+      { color: "dark", value: 124.99 },
+      { color: "light", value: 138.5 },
+      { color: "white", value: 112.75 },
     ],
     color: [{ value: "dark" }, { value: "light" }, { value: "white" }],
   },
@@ -210,9 +210,9 @@ export const productlists = [
     rating: 4.2,
     featured: true,
     price: [
-      { color: "natural", value: 9.99 },
-      { color: "brown", value: 12.5 },
-      { color: "black", value: 8.75 },
+      { color: "natural", value: 59.99 },
+      { color: "brown", value: 62.5 },
+      { color: "black", value: 78.75 },
     ],
     color: [{ value: "natural" }, { value: "brown" }, { value: "black" }],
   },
@@ -230,9 +230,9 @@ export const productlists = [
     rating: 3.5,
     featured: false,
     price: [
-      { color: "blue", value: 24.99 },
-      { color: "green", value: 29.5 },
-      { color: "brown", value: 22.75 },
+      { color: "blue", value: 124.99 },
+      { color: "green", value: 129.5 },
+      { color: "brown", value: 122.75 },
     ],
     color: [{ value: "blue" }, { value: "green" }, { value: "brown" }],
   },
@@ -252,9 +252,9 @@ export const productlists = [
     rating: 4.8,
     featured: true,
     price: [
-      { color: "black", value: 799.99 },
-      { color: "gray", value: 849.5 },
-      { color: "beige", value: 780.75 },
+      { color: "black", value: 1799.99 },
+      { color: "gray", value: 1849.5 },
+      { color: "beige", value: 1780.75 },
     ],
     color: [{ value: "black" }, { value: "gray" }, { value: "beige" }],
   },
