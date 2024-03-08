@@ -216,7 +216,7 @@ body {
 /* testimonials */
 .testimonials {
   position: relative;
-  background-image: url("./images/hero/bg1.jpg");
+  background-image: url("../images/hero/bg1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -303,7 +303,7 @@ body {
   background-image: 
   linear-gradient(rgba(22, 22, 22, 0.5),
                     rgba(22, 22, 22, 0.9)),
-                      url("./images/hero/bg1.jpg");
+                      url("../images/hero/bg1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
