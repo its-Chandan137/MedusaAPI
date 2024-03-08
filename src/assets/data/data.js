@@ -258,6 +258,28 @@ export const productlists = [
     ],
     color: [{ value: "black" }, { value: "gray" }, { value: "beige" }],
   },
+  {
+    id: 9,
+    title: "Luxury Couch",
+    description:
+      "Indulge in luxury with our Elegant and Comfortable Wooden Couch. Crafted with meticulous attention to detail, this couch adds a touch of sophistication to your living room. The 25% discount makes it a premium choice without compromising on quality. With an impressive rating of 4.8, this couch is a featured product for those who seek both style and comfort.",
+    images: [
+      {
+        image: "../images/product/product8.png",
+      },
+      { image: "../images/product/product1.2.png" },
+      { image: "../images/product/product1.3.png" },
+    ],
+    discount: 25,
+    rating: 4.8,
+    featured: true,
+    price: [
+      { color: "black", value: 1799.99 },
+      { color: "gray", value: 1849.5 },
+      { color: "beige", value: 1780.75 },
+    ],
+    color: [{ value: "black" }, { value: "gray" }, { value: "beige" }],
+  },
 ];
 
 /* import { FaShippingFast } from "react-icons/fa";
@@ -454,3 +476,19 @@ export const pageLinks = [
     ],
   },
 ];
+
+export const loginData = [
+  {
+      id: 1,
+      name: "Demon",
+      email: "demon@demon.com",
+      password: "0000",
+  },
+  {
+    id: 2,
+    name: "Chandan",
+    email: "chandan@gmail.com",
+    password: "1111",
+  },
+];
+

@@ -16,6 +16,13 @@ export const ModelCart = () => {
   const [activeTab, setActiveTab] = useState("cart");
 
   const openModel = () => {
+    setActiveTab("cart")
+    setIsOpen(true);
+    document.body.style.overflowX = "hidden";
+  };
+
+  const openWhislist = () => {
+    setActiveTab("wishlist")
     setIsOpen(true);
     document.body.style.overflowX = "hidden";
   };
@@ -34,7 +41,7 @@ export const ModelCart = () => {
   };
   return (
     <>
-      <button className="relative z-20" onClick={openModel}>
+      <button className="relative z-20" onClick={openWhislist}>
         <IoHeartOutline size={26} />
         <div className="absolute -top-2 -right-2">
           <Badges color="bg-primary-green">0</Badges>
@@ -127,7 +134,7 @@ export const CartProduct = ({id,cover,name,price,quantity}) => {
   return (
     <>
        <div className="mt-5 border-b-2 border-gray-200 pb-5">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2">
             <div className="images w-20 h-20">
                 {cover?.slice(0, 1).map((images,i)=>(
                     <img 

@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { productlists } from "../../assets/data/data";
 import { BodyOne, Caption, Title } from "../../components/common/CustomComponents";
 import { RenderRatingStars } from "../../components/product/ProductCard";
 import { useState } from "react";
 import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
+import { CartActions } from "../../redux/slice/cartSlice";
+import { useDispatch } from "react-redux";
 
 const colorsValue = {
   red: "#fe7fef",
@@ -28,7 +30,7 @@ export const ProductDeatils = () => {
   const {productId} = useParams()
   const product = productlists.find((product)=>product.id ===parseInt(productId))
 
-  const { title, images, description , price,  discount , rating , color } = product;
+  const { id, title, images, description , price,  discount , rating , color } = product;
 
   const [selectedColor, setSelectedColor] = useState(color[0].value)
   const [selectedPrice, setSelectedPrice] = useState(
@@ -41,7 +43,12 @@ export const ProductDeatils = () => {
     setSelectedPrice(newSelectedPrice);
   };
 
-  
+  const dispatch = useDispatch()
+
+  const discountPrice = price[0].value - (price[0].value * discount)/100;
+  const addToCart = () => {
+    dispatch(CartActions.addToCart({id, title, price: discountPrice, images}))
+  }
 
   // if (!product)
   // {
@@ -119,7 +126,9 @@ export const ProductDeatils = () => {
                 <button className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
                   <BiMinus size={20}/>
                 </button>
-                <button className="primary-btn">ADD TO CART</button>
+                <NavLink to={"/cart"}>
+                    <button onClick={addToCart} className="primary-btn">ADD TO CART</button>
+                </NavLink>
               </div>
               <div className="flex items-center gap-3 mt-6">
                 <button className="flex items-center gap-2 secondary-btn">

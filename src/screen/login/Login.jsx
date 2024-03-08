@@ -3,6 +3,7 @@ import { Title } from '../../components/common/CustomComponents';
 import { useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { loginData } from '../../assets/data/data';
 
 
 export const Login = () => {
@@ -52,7 +53,20 @@ export const Login = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
+        const password = e.target[1].value
         const email = e.target[0].value
+        
+        if((loginData.find((x)=> (x.email === email && x.password === password))))
+        {
+            alert(`Welcome ${email}`)
+            navigate("/home")
+        }
+        else{
+            alert(`Error`)
+            setEmailError(true)
+        }
+
+
         if(!email.match(emailRegex))
         {
             setEmailError(true)
@@ -61,7 +75,9 @@ export const Login = () => {
         {
             setEmailError(false)
         }
-        const password = e.target[1].value
+
+
+
         if(password == "")
         {
             setPasswordError(true)
@@ -73,14 +89,14 @@ export const Login = () => {
 
         if((email.match(emailRegex)) && (password!=""))
         {
-            alert("Welcome")
+            // alert("Welcome")
         }
     }
   return (
         <form onSubmit={handleSubmit} className="backgroundScreens w-full h-full mt-24 pt-10 bg-primary flex justify-center items-center pb-80" noValidate>
-            <div>
+            <div className='w-[300px]'>
             <div className="flex items-center justify-center ">
-                <h1 className="text-blue-600 text-[80px] font-[600]">./ LogIn</h1>
+                <h1 className="text-blue-600 text-[80px] font-[600]">LogIn\.</h1>
             </div>
             <div className="mb-5">
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>

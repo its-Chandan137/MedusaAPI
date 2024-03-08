@@ -113,9 +113,9 @@ export const Register = () => {
 
   return (
     <form onSubmit={handleSubmit} className="backgroundScreens w-full h-full mt-24 pt-10 bg-primary flex justify-center items-center pb-36" noValidate>
-      <div>
+      <div className="w-[300px]">
         <div className="flex items-center justify-center">
-            <h2 className=" text-blue-500 text-[80px] font-[600]">RegIster</h2>
+            <h2 className=" text-blue-500 text-[80px] font-[600]">Register</h2>
         </div>
         <div className="mb-5">
           <label
@@ -190,7 +190,7 @@ export const Register = () => {
               {" "}
               Password required!
               <div
-                className="font-small grid place-content-center pr-[1px] pl-0.5 w-5 h-5 rounded-full bg-blue-400 text-white text-center hover:bg-blue-700 focus:ring-blue-800 i-button"
+                className="font-small grid place-content-center pr-[1px] pl-0.5 w-5 h-5 rounded-full bg-blue-700 text-white text-center hover:bg-blue-800 focus:ring-blue-800 i-button"
                 data-tooltip="Password length should be minimum 8 characters long, should contain a special character, a number and an uppercase letter"
               >
                 !

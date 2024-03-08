@@ -54,6 +54,25 @@ const CustomNavLink = ({ href, className, children }) => {
     </NavLink>
   );
 };
+
+const CustomNavLink2 = ({ href, className, children }) => {
+  const linkStyles =
+    "text-[15px] font-medium font-sans cursor-pointer list-none";
+
+  return (
+    <NavLink
+      to={href}
+      className={({ isActive }) =>
+        isActive
+          ? `${className} ${linkStyles} text-primary-green`
+          : `${className} ${linkStyles}`
+      }
+    >
+      {children}
+    </NavLink>
+  );
+};
+
 const CustomLink = ({ className, children }) => {
   const linkStyles =
     "text-[15px] font-medium text-gray-600 font-sans cursor-pointer list-none";
@@ -80,6 +99,7 @@ export {
   Badges,
   CustomLink,
   CustomNavLink,
+  CustomNavLink2,
 };
 Title.propTypes = {
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
@@ -87,6 +107,11 @@ Title.propTypes = {
   className: PropTypes.isRequired,
 };
 CustomNavLink.propTypes = {
+  href: PropTypes.isRequired,
+  className: PropTypes,
+  children: PropTypes.isRequired,
+};
+CustomNavLink2.propTypes = {
   href: PropTypes.isRequired,
   className: PropTypes,
   children: PropTypes.isRequired,

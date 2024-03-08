@@ -1,6 +1,6 @@
 import LogoImg from "../../assets/common/medusa.png";
 import { menulists } from "../../assets/data/data.js";
-import { Badges, CustomLink, CustomNavLink } from "./CustomComponents.jsx";
+import { Badges, CustomLink, CustomNavLink, CustomNavLink2 } from "./CustomComponents.jsx";
 import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -74,30 +74,21 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-8 icons">
-            <div className="uppercase hidden lg:block text-inherit relative z-20">
-              <NavLink
-                to="/login"
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-              >
+            <div className={`uppercase hidden lg:block text-inherit relative z-20
+                            ${!isHomePage || isScrolled ? "text-gray-600" : "text-white"}`}>
+
+              <CustomNavLink2 href={"/login"}>
                 Login
-              </NavLink>
-              <span
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-              >
-                {" "}
-                /{" "}
+              </CustomNavLink2>
+
+              <span>
+                {" "}/{" "}
               </span>
-              <NavLink to="/register"
-                className={`${
-                  !isHomePage || isScrolled ? "text-primary" : "text-white"
-                }`}
-              >
+
+              <CustomNavLink2 href={"/register"}>
                 Register
-              </NavLink>
+              </CustomNavLink2>
+
             </div>
             <div
               className={`icon flex items-center justify-center gap-6 
