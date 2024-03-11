@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+
 export const menulists = [
   {
     id: 1,
@@ -477,15 +479,31 @@ export const pageLinks = [
   },
 ];
 
+
+export const Users = ({userName, userEmail, userPassword}) => {
+  const dispatch = useDispatch();
+  const userList =  useDispatch((state) => state.account.accountList);
+
+
+  return (
+      state.loginData.push(
+        {
+            userName: newAccount.name,
+            userEmail: newAccount.email,
+            userPassword: newAccount.password,
+        }
+      )
+  )
+}
+
+
 export const loginData = [
   {
-      id: 1,
       name: "Demon",
       email: "demon@demon.com",
       password: "0000",
   },
   {
-    id: 2,
     name: "Chandan",
     email: "chandan@gmail.com",
     password: "1111",

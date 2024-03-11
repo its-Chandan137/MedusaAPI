@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from "react";
 import { CustomNavLink, Title } from "../../components/common/CustomComponents";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AccountAction } from "../../redux/slice/accountSlice";
 
 export const Register = () => {
   const ref = useRef();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   // const [passStore,setPassStore] = useState("")
   // const [confirmPass,setConfirmPass] = useState("")
@@ -26,6 +29,9 @@ export const Register = () => {
 
   const [confirmPass, setConfirmPass] = useState("");
   const [confPassError, setConfPassError] = useState(false);
+
+  const [saveData, updateSaveData] = useState()
+
   const emailRegex =
     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -73,6 +79,9 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target[0].value;
+    navigate("/login")
+
+
     if (name.length < 3) {
       setNameError(true);
       setColT("red");
@@ -110,6 +119,15 @@ export const Register = () => {
       alert("Submitted");
     }
   };
+
+  const addAccount = () => {
+    dispatch(AccountAction.addAccount(
+      {
+        name : name,
+        email : email,
+        password : password,
+      }))
+  }
 
   return (
     <form onSubmit={handleSubmit} className="backgroundScreens w-full h-full mt-24 pt-10 bg-primary flex justify-center items-center pb-36" noValidate>
@@ -261,6 +279,7 @@ export const Register = () => {
           </label>
         </div>
         <button
+          onClick={addAccount}
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >

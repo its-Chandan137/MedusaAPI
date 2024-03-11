@@ -74,9 +74,19 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-8 icons">
+
+ {/* ------------------------Login and register will change into profile icon here -------------------------------------------*/}
+
             <div className={`uppercase hidden lg:block text-inherit relative z-20
                             ${!isHomePage || isScrolled ? "text-gray-600" : "text-white"}`}>
 
+            {/* <div>
+              <CustomNavLink href={"#"}>
+                Profile
+              </CustomNavLink>
+            </div> */}
+
+            <div>
               <CustomNavLink2 href={"/login"}>
                 Login
               </CustomNavLink2>
@@ -88,8 +98,11 @@ export const Header = () => {
               <CustomNavLink2 href={"/register"}>
                 Register
               </CustomNavLink2>
+            </div>
 
             </div>
+
+
             <div
               className={`icon flex items-center justify-center gap-6 
             ${!isHomePage || isScrolled ? "text-primary" : "text-white"}`}
