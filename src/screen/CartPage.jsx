@@ -9,6 +9,7 @@ export const CartPage = ({id, cover, name, price, quantity}) => {
     const totalPrice = useSelector(selectTotalPrice)
     const dispatch = useDispatch()
 
+
    return (
      <>
         <section className="mt-16">
@@ -41,6 +42,12 @@ export const CartPage = ({id, cover, name, price, quantity}) => {
 
 
                     </div>
+
+                    <div className="total z-30 flex items-center justify-between h-20 mt-10 px-32 border border-green-300 p-5 bg-black">
+                        <Title level={6} className="text-white">Subtotal</Title>
+                        <Title level={6} className="text-white">&#8377;{(totalPrice.toFixed(2))}</Title>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -51,6 +58,7 @@ export const CartPage = ({id, cover, name, price, quantity}) => {
 
  export const CartProduct = ({id,cover,name,price,quantity}) => {
     const dispatch = useDispatch()
+
 
     const removeCartItem = () => {
         dispatch(CartActions.removeFromAllCart(id));
@@ -67,9 +75,11 @@ export const CartPage = ({id, cover, name, price, quantity}) => {
                     />
             </div>
             <div className="details w-1/2">
-                <BodyOne>{name}</BodyOne>
+                {/* <BodyOne>{name}</BodyOne> */}
                 <p className="text-primary-green flex justify-center">
-                    {quantity} x {price?.toFixed(2)}
+                    <span 
+                    className="text-white flex justify-center items-center bg-black rounded-full w-7 h-7 px-1 mx-1">
+                        {quantity}</span> x {price?.toFixed(2)}
                 </p>
             </div>
             <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-primary">

@@ -6,10 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { NavLink, useLocation } from "react-router-dom";
 import { ModelCart } from "../cart/ModelCart.jsx";
+import { BsFillPersonFill } from "react-icons/bs";
+import { BsGitlab } from "react-icons/bs";
+
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLog, setIsLog] = useState(true);
   const menuRef = useRef(null);
   const location = useLocation();
 
@@ -80,25 +84,25 @@ export const Header = () => {
             <div className={`uppercase hidden lg:block text-inherit relative z-20
                             ${!isHomePage || isScrolled ? "text-gray-600" : "text-white"}`}>
 
-            {/* <div>
-              <CustomNavLink href={"#"}>
-                Profile
-              </CustomNavLink>
-            </div> */}
+              {isLog ? <div>
+                <CustomNavLink2 href={"/login"}>
+                  Login
+                </CustomNavLink2>
 
-            <div>
-              <CustomNavLink2 href={"/login"}>
-                Login
-              </CustomNavLink2>
+                <span>
+                  {" "}/{" "}
+                </span>
 
-              <span>
-                {" "}/{" "}
-              </span>
-
-              <CustomNavLink2 href={"/register"}>
-                Register
-              </CustomNavLink2>
-            </div>
+                <CustomNavLink2 href={"/register"}>
+                  Register
+                </CustomNavLink2>
+              </div> 
+              : 
+              <div>
+                <NavLink href="#">
+                  <BsFillPersonFill size={25}/>
+                </NavLink>
+              </div>}
 
             </div>
 
@@ -107,7 +111,7 @@ export const Header = () => {
               className={`icon flex items-center justify-center gap-6 
             ${!isHomePage || isScrolled ? "text-primary" : "text-white"}`}
             >
-              <IoSearchOutline size={23} />
+              {/* <IoSearchOutline size={25} /> */}
 
               <ModelCart />
 
