@@ -1,4 +1,5 @@
 import { productlists } from "../../assets/data/data"
+// import { productList2 } from "../../assets/data/productList2"
 import { BodyOne, Title } from "../../components/common/CustomComponents"
 import { ProductCard } from "../../router"
 

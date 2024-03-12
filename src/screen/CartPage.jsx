@@ -60,14 +60,11 @@ export const CartPage = ({id, cover, name, price, quantity}) => {
        <div className="mt-5 border-b-2 border-gray-200 pb-5 w-full">
         <div className="flex items-center gap-5 justify-between">
             <div className="images w-20 h-20">
-                {cover?.slice(0, 1).map((images,i)=>(
                     <img 
-                    key={i} 
-                    src={images?.image} 
+                    src={cover} 
                     alt={name}
                     className="w-full h-full object-contain" 
                     />
-                ))}
             </div>
             <div className="details w-1/2">
                 <BodyOne>{name}</BodyOne>

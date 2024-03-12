@@ -1,3 +1,4 @@
+export { ProductCard2 } from "../screen/shop/Productcard2";
 
 export {Register} from "../screen/register/Register";
 
@@ -38,4 +39,3 @@ export { Layout } from "../components/common/Layout";
 export { Home } from "../screen/home/Home";
 
 export { Hero } from "../components/hero/Hero";
-
