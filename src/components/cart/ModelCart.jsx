@@ -2,13 +2,15 @@ import { IoCloseOutline, IoHeartOutline } from "react-icons/io5";
 import { Badges, BodyOne, CustomNavLink, Title } from "../common/CustomComponents";
 import { FaOpencart } from "react-icons/fa";
 import { useState } from "react";
-import { CartActions, selectTotalPrice, selectTotalQuantity } from "../../redux/slice/cartSlice";
+import { CartActions, selectLikesQuantity, selectTotalPrice, selectTotalQuantity } from "../../redux/slice/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export const ModelCart = () => {
   const totalQuantity = useSelector(selectTotalQuantity)
+  const likeQuantity = useSelector(selectLikesQuantity)
   const cartItems = useSelector((state) => state.cart.itemList)
+  const wishlist = useSelector((state) => state.cart.likeList)
   const totalPrice = useSelector(selectTotalPrice)
 
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +46,7 @@ export const ModelCart = () => {
       <button className="relative z-20" onClick={openWhislist}>
         <IoHeartOutline size={26} />
         <div className="absolute -top-2 -right-2">
-          <Badges color="bg-primary-green">0</Badges>
+          <Badges color="bg-primary-green">{likeQuantity}</Badges>
         </div>
       </button>
       <button className="relative z-20" onClick={openModel}>
@@ -81,7 +83,7 @@ export const ModelCart = () => {
               >
                 Wishlist
                 <span className="w-7 h-7 rounded-full text-[11px] font-normal text-white grid place-content-center bg-primary">
-                  0
+                  {likeQuantity}
                 </span>
               </button>
             </div>
@@ -115,7 +117,19 @@ export const ModelCart = () => {
 
             : 
 
-            <>Show Wishlist</>}
+            <>
+
+              {wishlist.map((item) => (
+                    <LikedProducts
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    cover={item.cover}
+                    price={item.price}
+                    />
+                ))}
+
+            </>}
 
           </div>
         </>
@@ -155,4 +169,35 @@ export const CartProduct = ({id,cover,name,price,quantity}) => {
        </div>
     </>
   )
+}
+
+export const LikedProducts = ({id,cover,name,price,quantity}) => {
+  const dispatch = useDispatch()
+
+  const removeFromWishlist = () => {
+      dispatch(CartActions.removeFromWishlist(id));
+  }
+return (
+  <>
+     <div className="mt-5 border-b-2 border-gray-200 pb-5">
+      <div className="flex items-center gap-2">
+          <div className="images w-20 h-20">
+                  <img 
+                  src={cover} 
+                  alt={name}
+                  className="w-full h-full object-contain" 
+                  />
+          </div>
+          <div className="details w-1/2">
+              <p className="text-primary-green">
+              &#8377;{price?.toFixed(2)}
+              </p>
+          </div>
+          <button className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-primary">
+              <IoCloseOutline size={25} onClick={removeFromWishlist}/>
+          </button>
+      </div>
+     </div>
+  </>
+)
 }

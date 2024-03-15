@@ -5,9 +5,9 @@ import { IoMdHeart } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { BodyOne, Title } from "../../components/common/CustomComponents";
 import { AiFillInstagram } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { CartActions } from "../../redux/slice/cartSlice";
-import productSlice, { fetchProducts } from "../../redux/slice/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { CartActions, selectQuantity } from "../../redux/slice/cartSlice";
+import productSlice, { fetchProducts, fetchSingleProduct } from "../../redux/slice/productSlice";
 
 
 export const ProductCard2 = ({
@@ -28,12 +28,21 @@ export const ProductCard2 = ({
   };
 
 
+  const singleQuantity = useSelector(selectQuantity(id)); 
+
+
+
+  console.log(singleQuantity)
+
+
 
  const addToCart = () => {
   dispatch(CartActions.addToCart({id,title,price,images}))
  }
 
-
+const wishlist = () => {
+  dispatch(CartActions.wishlist({id,title,price,images}))
+}
 
   return (
     <>
@@ -59,7 +68,9 @@ export const ProductCard2 = ({
               <IoCart size={23} />
             </button>
 
-            <button className="love-btn product-btn primary-btn">
+            <button
+            onClick={wishlist} 
+            className="love-btn product-btn primary-btn">
               <IoMdHeart size={23} />
             </button>
           </div>
@@ -103,7 +114,7 @@ export const ProductCard2 = ({
                   <BodyOne className="text-sm leading-6">{description}</BodyOne>
                 <div className="flex gap-7">
                   <div className="flex items-center gap-3">
-                    <input type="text" value="1" className="w-12 h-12 text-primary outline-none border-2 border-primary px-4" />
+                    <input type="text" value={singleQuantity} className="w-12 h-12 text-primary outline-none border-2 border-primary px-4" />
                   </div>
                   <NavLink to={"/cart"}>
                     <button onClick={addToCart} className="primary-btn">ADD TO CART</button>

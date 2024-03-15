@@ -1,4 +1,35 @@
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../redux/slice/productSlice";
+
+
+// const dispatch = useDispatch();
+// const state = useSelector((state) => state);
+
+// useEffect(() => {
+//   dispatch(fetchProducts());
+//   console.log(
+//     "state - ",
+//     state.products.data.map((product) => product.title)
+//   );
+//   if (state.isLoading) {
+//     return <h1>Loading...</h1>;
+//   }
+// });
+
+// const mensSection = state.products.data.filter(
+//   (product) => product.id == 1
+// );
+
+// export const herolist2 = [
+//   {
+//         id: `${productx.id}`,
+//         title:`${productx.title}`,
+//         description:`${productx.description}`,
+//         images:`${productx.image}`,
+//         price:`${productx.price}`,
+//   },
+// ];
 
 export const menulists = [
   {
@@ -33,6 +64,7 @@ export const menulists = [
     link: "Cart",
   },
 ];
+
 
 export const herolist = [
   {

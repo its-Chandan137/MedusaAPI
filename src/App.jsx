@@ -4,7 +4,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { About, Blog, CartPage, Contact, Home, Layout, Login, ProductDeatils, Register, Services, Shop } from './router';
+import { About, Blog, CartPage, Contact, Home, Layout, Login, ProductDeatils, Profile, Register, Services, Shop } from './router';
 import './styles/index.css'
 
 
@@ -25,6 +25,7 @@ export const App = () => {
         <Route path="/login" element={<Layout><Login/></Layout>}/>
         <Route path="/register" element={<Layout><Register/></Layout>}/>
         <Route path="/product-details/:productId" element={<Layout><ProductDeatils/></Layout>}/>
+        <Route path="/profile" element={<Layout><Profile/></Layout>}/>
       </Routes>
       </BrowserRouter>
     </>

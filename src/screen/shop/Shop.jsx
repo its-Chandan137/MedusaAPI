@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { ProductCard, ProductCard2 } from "../../router";
+import { ProductCard2 } from "../../router";
 import { useEffect } from "react";
-import productSlice, { fetchProducts } from "../../redux/slice/productSlice";
+import { fetchProducts } from "../../redux/slice/productSlice";
 import { Title } from "../../components/common/CustomComponents";
 
 export const Shop = () => {

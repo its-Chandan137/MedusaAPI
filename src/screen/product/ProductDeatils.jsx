@@ -2,7 +2,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { productlists } from "../../assets/data/data";
 import { BodyOne, Caption, Title } from "../../components/common/CustomComponents";
 import { BiHeart, BiMinus, BiPlus } from "react-icons/bi";
-import { CartActions } from "../../redux/slice/cartSlice";
+import { CartActions, selectQuantity } from "../../redux/slice/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import productSlice, { fetchProducts, fetchSingleProduct } from "../../redux/slice/productSlice";
 import { useEffect } from "react";
@@ -29,23 +29,38 @@ const colorsValue = {
 export const ProductDeatils = () => {
   const {productId} = useParams()
   const dispatch = useDispatch()
+
   const product = useSelector((state) => state.products.singleProduct)
+
+  const { id, title, image, description , price} = product;
+
 
   useEffect(() => {
     dispatch(fetchSingleProduct(productId))
   }, [])
 
+  const singleQuantity = useSelector(selectQuantity(id)); 
 
-  console.log("data = " , useSelector((state) => state.products.singleProduct))
 
-  // console.log("prooooduct - ", data.find((product)=>product.id === parseInt(productId)))
 
-  // const product = state.find((product)=>product.id === parseInt(productId))
+  console.log(singleQuantity)
 
-  const { id, title, image, description , price} = product;
+
 
   const addToCart = () => {
     dispatch(CartActions.addToCart({id, title, price, images: image}))
+  }
+
+  const wishlist = () => {
+    dispatch(CartActions.wishlist({id, title, price, images: image}))
+  }
+
+  const removeFromWishlist = () => {
+    dispatch(CartActions.removeFromWishlist(id))
+  }
+
+  const removeFromCart = () => {
+    dispatch(CartActions.removeFromCart(id))
   }
 
   if (!product)
@@ -85,21 +100,25 @@ export const ProductDeatils = () => {
               </div>
               <br />
               <div className="flex items-center gap-3">
-                <button className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
+
+                <button onClick={removeFromCart} className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
+                  <BiMinus size={20}/>
+                </button>
+
+                <input type="text" value={singleQuantity} className="w-16 h-12 text-primary border border-gray-300 px-6" />
+
+                <button onClick={addToCart} className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
                   <BiPlus size={20}/>
                 </button>
 
-                <input type="text" value="1" className="w-16 h-12 text-primary border border-gray-300 px-6" />
-
-                <button className="w-12 h-12 grid place-items-center bg-gray-100 text-primary border border-gray-300">
-                  <BiMinus size={20}/>
-                </button>
                 <NavLink to={"/cart"}>
                     <button onClick={addToCart} className="primary-btn">ADD TO CART</button>
                 </NavLink>
               </div>
               <div className="flex items-center gap-3 mt-6">
-                <button className="flex items-center gap-2 secondary-btn">
+                <button
+                onClick={wishlist}
+                className="flex items-center gap-2 secondary-btn">
                   <BiHeart size={20}/>
                   Add to Wishlist
                 </button>

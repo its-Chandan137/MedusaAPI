@@ -7,13 +7,14 @@ const accountSlice = createSlice({
     name: "account",
     initialState: {
         accountList: [],
+        isLog : false,
     },
     accountList: [],
     reducers: {
         addAccount: (state, action) => {
             const newAccount = action.payload;
             const oldAccount = state.accountList.find(
-                (account) => account.id === newAccount.id
+                (account) => account.email === newAccount.email
             );
             if (oldAccount) 
             {
@@ -34,19 +35,15 @@ const accountSlice = createSlice({
                         email: newAccount.email,
                         password: newAccount.password,
                     }
-                )
+                );
             }
+        },
+        loggedin: (state, action) => {
+            state.isLog = action.payload;   
         }
     }
 })
 
-loginData.push(
-    {
-        name: accountSlice.name,
-        email: accountSlice.email,
-        password: accountSlice.password,
-    }
-)
 
 export const AccountAction = accountSlice.actions;
 export const {} = accountSlice.actions;

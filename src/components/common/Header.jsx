@@ -1,6 +1,6 @@
 import LogoImg from "../../assets/common/medusa.png";
 import { menulists } from "../../assets/data/data.js";
-import { Badges, CustomLink, CustomNavLink, CustomNavLink2 } from "./CustomComponents.jsx";
+import { Badges, CustomLink, CustomNavLink, CustomNavLink2, Title } from "./CustomComponents.jsx";
 import { IoSearchOutline } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -8,12 +8,17 @@ import { NavLink, useLocation } from "react-router-dom";
 import { ModelCart } from "../cart/ModelCart.jsx";
 import { BsFillPersonFill } from "react-icons/bs";
 import { BsGitlab } from "react-icons/bs";
+import { useSelector } from "react-redux";
+
+
 
 
 export const Header = () => {
+  const isLog = useSelector((state) => state.account.isLog)
+  // const isLog = false;
+
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isLog, setIsLog] = useState(true);
   const menuRef = useRef(null);
   const location = useLocation();
 
@@ -41,6 +46,8 @@ export const Header = () => {
       document.removeEventListener("scroll", handleScroll);
     };
   });
+
+  console.log(isLog)
 
   const isHomePage = location.pathname === "/";
 
@@ -84,7 +91,7 @@ export const Header = () => {
             <div className={`uppercase hidden lg:block text-inherit relative z-20
                             ${!isHomePage || isScrolled ? "text-gray-600" : "text-white"}`}>
 
-              {isLog ? <div>
+              {isLog == false ? <div>
                 <CustomNavLink2 href={"/login"}>
                   Login
                 </CustomNavLink2>
@@ -98,10 +105,10 @@ export const Header = () => {
                 </CustomNavLink2>
               </div> 
               : 
-              <div>
-                <NavLink href="#">
-                  <BsFillPersonFill size={25}/>
-                </NavLink>
+              <div className="flex flex-col justify-center items-center">
+                <CustomNavLink2 href={"/profile"}>
+                  <BsFillPersonFill size={28}/>
+                </CustomNavLink2>
               </div>}
 
             </div>

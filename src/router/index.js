@@ -1,3 +1,5 @@
+export { Profile } from "../screen/Profile/Profile";
+
 export { ProductCard2 } from "../screen/shop/Productcard2";
 
 export {Register} from "../screen/register/Register";

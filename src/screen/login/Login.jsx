@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { loginData } from '../../assets/data/data';
+import { useDispatch } from 'react-redux';
+import { AccountAction } from '../../redux/slice/accountSlice';
 
 
 export const Login = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [open,setOpen] = useState(false)
 
@@ -51,6 +54,11 @@ export const Login = () => {
         setPassword(password)
     }
 
+    const LoggedIn = () =>{
+        dispatch(AccountAction.loggedin(true))
+      }
+      console.log(AccountAction)
+
     const handleSubmit = (e)=>{
         e.preventDefault();
         const password = e.target[1].value
@@ -59,6 +67,7 @@ export const Login = () => {
         if((loginData.find((x)=> (x.email === email && x.password === password))))
         {
             alert(`Welcome ${email}`)
+            LoggedIn()
             navigate("/home")
         }
         else{
@@ -96,7 +105,7 @@ export const Login = () => {
         <form onSubmit={handleSubmit} className="backgroundScreens w-full h-full mt-24 pt-10 bg-primary flex justify-center items-center pb-80" noValidate>
             <div className='w-[300px]'>
             <div className="flex items-center justify-center ">
-                <h1 className="text-blue-600 text-[80px] font-[600]">LogIn\.</h1>
+                <h1 className="text-blue-600 text-[80px] font-[600]">LogIn</h1>
             </div>
             <div className="mb-5">
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
