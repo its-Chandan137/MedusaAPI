@@ -28,6 +28,7 @@ const cartSlice = createSlice({
         {
           alert("Maximum quantity reached")
           existingItem.quantity = 1
+          existingItem.totalPrice = newItem.price;
         }
       } 
       else 

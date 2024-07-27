@@ -15,7 +15,6 @@ import { useSelector } from "react-redux";
 
 export const Header = () => {
   const isLog = useSelector((state) => state.account.isLog)
-  // const isLog = false;
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

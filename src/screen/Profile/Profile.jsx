@@ -26,10 +26,10 @@ export const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="h-2/3  p-2">
-              <div className="flex flex-col justify-center items-center w-full h-full opacity-30">
+            <div className="h-2/3  py-2">
+              <div className="flex flex-col justify-center items-center w-full h-full opacity-40">
                 <div className="h-1/5 bg-red-200 w-full"></div>
-                <div className="h-1/5 bg-red-300 w-full"></div>
+                <div className="h-2/5 bg-red-300 w-full"></div>
                 <div className="h-1/5 bg-red-400 w-full"></div>
                 <div className="h-1/5 bg-red-500 w-full"></div>
                 <div className="h-1/5 bg-red-600 w-full"></div>

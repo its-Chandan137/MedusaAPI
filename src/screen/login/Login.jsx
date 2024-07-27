@@ -57,7 +57,6 @@ export const Login = () => {
     const LoggedIn = () =>{
         dispatch(AccountAction.loggedin(true))
       }
-      console.log(AccountAction)
 
     const handleSubmit = (e)=>{
         e.preventDefault();

@@ -28,8 +28,8 @@ const additionalInfo = [
 export const ShippingInfo = () => {
   return (
     <>
-      <section className="container">
-        <div className="py-32 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <section className="container bg-white-100 w-full px-40 pb-20">
+        <div className="py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {additionalInfo.map((info)=>(
             <div key={info.id} className="flex items-center justify-center flex-col text-center gap-3">
               <div className="text-primary-green">{info.icon}</div>

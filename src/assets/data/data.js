@@ -69,10 +69,10 @@ export const menulists = [
 export const herolist = [
   {
     id: 1,
-    title: "Natural Wooden Products",
+    title: "Natural Best Products",
     description:
       "Sell globally in minutes with localized currencies, languages, and experiences in every market.",
-    image: "../images/hero/h1.png",
+    image: "../images/hero/h3.png",
     price: [
       {
         color: "red",
@@ -97,10 +97,10 @@ export const herolist = [
   },
   {
     id: 2,
-    title: "Explore Wooden Products",
+    title: "Explore Best Products",
     description:
       "Sell globally in minutes with localized currencies, languages, and experiences in every market.",
-    image: "../images/hero/h2.png",
+    image: "../images/hero/h4.png",
     price: [
       {
         color: "red",

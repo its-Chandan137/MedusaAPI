@@ -47,11 +47,11 @@ const wishlist = () => {
   return (
     <>
       <div className="product card">
-        <div className="images h-72">
+        <div className="images h-64">
             <NavLink to={`/product-details/${id}`}>
               <img src={images}
                 alt={title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain p-2"
               />
             </NavLink>
           <div className="overlay flex items-center gap-2 justify-center absolute bottom-0 left-0 right-0 m-5">
@@ -75,9 +75,9 @@ const wishlist = () => {
             </button>
           </div>
         </div>
-        <div className="details flex items-center flex-col bg-white pt-6">
-          <NavLink to={`/product-details/${id}`}>
-            <BodyOne>{title}</BodyOne>
+        <div className="details flex items-center justify-center flex-col bg-white pt-6 p-2 max-h-40">
+          <NavLink to={`/product-details/${id}`} >
+            <BodyOne className="text-center">{title}</BodyOne>
           </NavLink>
           <div className="flex items-center gap-3">
               <>
