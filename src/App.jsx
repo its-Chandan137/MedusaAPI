@@ -12,11 +12,11 @@ import './styles/index.css'
 export const App = () => {
   useEffect(() => {
     const s = document.createElement('script')
-    s.src = 'http://localhost:3000/widget.js'
+    s.src = 'https://leadpilotgrowth.com/widget.js'
     s.async = true
     s.dataset.clientId = '40049a0e-087d-46b7-8ce9-3592848fb918'
-    s.dataset.apiUrl = 'http://localhost:3000'
-    s.dataset.widgetSrc = 'http://localhost:3000/widget-dist/widget.js'
+    s.dataset.apiUrl = 'https://leadpilotgrowth.com'
+    s.dataset.widgetSrc = 'https://leadpilotgrowth.com/widget-dist/widget.js'
     document.body.appendChild(s)
     return () => document.body.removeChild(s)
   }, [])
