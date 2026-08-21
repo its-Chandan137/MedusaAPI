@@ -14,7 +14,7 @@ export const App = () => {
     const s = document.createElement('script')
     s.src = 'https://leadpilotgrowth.com/widget.js'
     s.async = true
-    s.dataset.clientId = '40049a0e-087d-46b7-8ce9-3592848fb918'
+    s.dataset.clientId = '20be2226-3978-44dd-8d9b-9c270272330a'
     s.dataset.apiUrl = 'https://leadpilotgrowth.com'
     s.dataset.widgetSrc = 'https://leadpilotgrowth.com/widget-dist/widget.js'
     document.body.appendChild(s)
